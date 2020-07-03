@@ -18,6 +18,12 @@
     align-items: center;
     justify-content: center;
 
+    @media only screen and (max-width: $bp-smallest) {
+        order: 1;
+        flex: 0 0 100%;
+        background-color: var(--color-grey-light-2);
+    }
+
     &__input {
         font-family: inherit;
         font-size: inherit;
@@ -195,6 +201,11 @@
             justify-content: center;
             padding: 2rem;
         }
+
+        @media only screen and (max-width: $bp-small) {
+            flex-direction: column;
+            padding: 1.5rem .5rem;
+        }
     }
     
     &__icon {
@@ -202,6 +213,13 @@
         height: 1.75rem;
         margin-right: 2rem;
         fill: currentColor;
+
+        @media only screen and (max-width: $bp-small) {
+            margin-right: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-bottom: .7rem;
+        }
     }
 }
 
@@ -245,6 +263,11 @@
         text-transform: uppercase;
         letter-spacing: 1px;
         padding: 1.5rem 3rem;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.6rem;
+            padding: 1.25rem 2rem;
+        }
     }
 
     &__stars {
@@ -280,16 +303,28 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        @media only screen and (max-width: $bp-small) {
+            padding: 0 1.5rem;
+        }
     }
 
     &__rating-average {
         font-size: 2.25rem;
         font-weight: 300;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1.6rem;
+        }
     }
 
     &__raiting-count {
         font-size: .8rem;
         text-transform: uppercase;
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: .6rem;
+        }
     }
 }
 
@@ -306,6 +341,10 @@
     background-color: transparent;
     cursor: pointer;
     transition: all .2s;
+
+    @media only screen and (max-width: $bp-small) {
+        font-size: 1.2rem;
+    }
 
     & span {
         font-size: 1.6rem;
@@ -382,9 +421,14 @@
         background-size: cover;
 
         // Newer browsers - masks
-        // background-color: var(--color-primary);
-        // mask-image: url(../img/chevron-thin-right.svg);
-        // mask-size: cover;
+        @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+            background-color: var(--color-primary);
+            -webkit-mask-image: url(../img/chevron-thin-right.svg);
+            -webkit-mask-size: cover;
+            mask-image: url(../img/chevron-thin-right.svg);
+            mask-size: cover;
+            background-image: none;
+        }
     }
 }
 
