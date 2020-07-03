@@ -277,16 +277,26 @@
 .btn-inline {
     border: none;
     color: var(--color-primary);
-    font-size: 1.2rem;
-    border-bottom: var(--line);
+    font-size: 1.6rem;
+    border-bottom: 1px solid currentColor;
     padding-bottom: 2px;
     display: inline-block;
     background-color: transparent;
     cursor: pointer;
     transition: all .2s;
 
+    & span {
+        font-size: 1.6rem;
+        margin-left: .5rem;
+        transition: margin-lef .2s;
+    }
+
     &:hover {
         color: var(--color-grey-dark-1);
+
+        span {
+            margin-left: 1rem;
+        }
     }
 
     &:focus {
@@ -385,5 +395,69 @@
         &:not(:last-child) {
             margin-right: -1.5rem;
         }
+    }
+}
+
+//////////////////////////////////
+// REVIEWS
+
+.review {
+    background-color: #fff;
+    box-shadow: var(--shadow-light);
+    padding: 3rem;
+    margin-bottom: 3.5rem;
+    position: relative;
+    overflow: hidden;
+
+    &__text {
+        font-size: inherit;
+        z-index: 10;
+        position: relative;
+    }
+
+    &__user {
+        display: flex;
+        align-items: center;
+        margin-top: 2rem;
+    }
+
+    &__photo {
+        height: 4.5rem;
+        width: 4.5rem;
+        border-radius: 50%;
+        margin-right: 1.5rem;
+    }
+
+    &__user-box {
+        font-size: 2rem;
+        margin-right: auto;
+    }
+
+    &__user-name {
+        text-transform: uppercase;
+        font-weight: 600;
+        margin-bottom: 0.4rem;
+    }
+
+    &__user-date {
+        color: var(--color-grey-dark-3);
+    }
+
+    &__rating {
+        font-size: 2.6rem;
+        color: var(--color-primary);
+        font-weight: 400;
+    }
+
+    &::before {
+        content: "\201C";
+        position: absolute;
+        top: -2.75rem;
+        left: -1rem;
+        line-height: 1;
+        font-size: 20rem;
+        color: var(--color-grey-light-2);
+        font-family: sans-serif;
+        z-index: 1;
     }
 }
